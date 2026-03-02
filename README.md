@@ -10,7 +10,7 @@ Typed Python SDK for [claw402.ai](https://claw402.ai) — pay-per-call crypto da
 ## Install
 
 ```bash
-pip install claw402
+pip install git+https://github.com/NoFxAiOS/claw402-python.git
 ```
 
 ## Quick Start
