@@ -5,7 +5,7 @@
 
 Typed Python SDK for [claw402.ai](https://claw402.ai) — pay-per-call data APIs via [x402](https://www.x402.org/) micropayments.
 
-**200+ endpoints** covering crypto market data, US stocks, China A-shares, forex, global time-series, and AI (OpenAI/Anthropic). No API key, no signup, no subscription — just a Base wallet with USDC.
+**200+ endpoints** covering crypto market data, US stocks, China A-shares, forex, global time-series, and AI (OpenAI/Anthropic/DeepSeek/Qwen). No API key, no signup, no subscription — just a Base wallet with USDC.
 
 ## Install
 
@@ -53,7 +53,7 @@ print(resp)
 
 - **Typed methods** — every endpoint has a dedicated Python method with keyword arguments
 - **Automatic x402 payment** — signs EIP-3009 USDC transfers locally, never sends your key
-- **9 provider groups** — crypto, US stocks, China stocks, forex, global data, and AI
+- **11 provider groups** — crypto, US stocks, China stocks, forex, global data, and AI
 - **Context manager** — `with Claw402(...) as client:` for automatic cleanup
 - **Zero config** — just a private key, no API keys or registration
 - **Base mainnet** — pays USDC per call on Coinbase L2
@@ -243,6 +243,30 @@ resp = client.anthropic.anthropic.messages({
     "model": "claude-opus-4-6",
     "max_tokens": 1024,
     "messages": [{"role": "user", "content": "Summarize this earnings report: ..."}]
+})
+```
+
+#### DeepSeek
+
+| Resource | Methods | Description |
+|----------|---------|-------------|
+| `deepseek.deepseek` | `chat`, `chat_reasoner`, `completions`, `models` | DeepSeek chat, reasoning, beta completions, model listing — $0.001–0.005/call |
+
+```python
+resp = client.deepseek.deepseek.chat({
+    "messages": [{"role": "user", "content": "Explain BTC basis trade"}]
+})
+```
+
+#### Qwen
+
+| Resource | Methods | Description |
+|----------|---------|-------------|
+| `qwen.qwen` | `chat_max`, `chat_plus`, `chat_turbo`, `chat_flash`, `chat_coder`, `chat_vl` | Qwen chat, coder, and vision models — $0.002–0.01/call |
+
+```python
+resp = client.qwen.qwen.chat_max({
+    "messages": [{"role": "user", "content": "Write a Go HTTP middleware"}]
 })
 ```
 

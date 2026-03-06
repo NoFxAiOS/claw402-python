@@ -11,9 +11,11 @@ from .generated.alpaca import AlpacaResource
 from .generated.alphavantage import AlphavantageResource
 from .generated.anthropic import AnthropicResource
 from .generated.coinank import CoinankResource
+from .generated.deepseek import DeepseekResource
 from .generated.nofxos import NofxosResource
 from .generated.openai import OpenaiResource
 from .generated.polygon import PolygonResource
+from .generated.qwen import QwenResource
 from .generated.tushare import TushareResource
 from .generated.twelvedata import TwelvedataResource
 
@@ -101,6 +103,8 @@ class Claw402:
         # AI model providers
         self.openai = OpenaiResource(self)
         self.anthropic = AnthropicResource(self)
+        self.deepseek = DeepseekResource(self)
+        self.qwen = QwenResource(self)
 
     def close(self):
         """Close the underlying HTTP session."""
