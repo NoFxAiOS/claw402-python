@@ -3,6 +3,7 @@ from .alpaca import AlpacaResource
 from .alphavantage import AlphavantageResource
 from .anthropic import AnthropicResource
 from .coinank import CoinankResource
+from .coinmarketcap import CoinmarketcapResource
 from .deepseek import DeepseekResource
 from .nofxos import NofxosResource
 from .openai import OpenaiResource
@@ -11,4 +12,4 @@ from .qwen import QwenResource
 from .tushare import TushareResource
 from .twelvedata import TwelvedataResource
 
-__all__ = ["AlpacaResource", "AlphavantageResource", "AnthropicResource", "CoinankResource", "DeepseekResource", "NofxosResource", "OpenaiResource", "PolygonResource", "QwenResource", "TushareResource", "TwelvedataResource"]
+__all__ = ["AlpacaResource", "AlphavantageResource", "AnthropicResource", "CoinankResource", "CoinmarketcapResource", "DeepseekResource", "NofxosResource", "OpenaiResource", "PolygonResource", "QwenResource", "TushareResource", "TwelvedataResource"]

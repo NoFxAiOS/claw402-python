@@ -6,7 +6,7 @@ class CoinankKline:
         self._client = client
 
     def lists(self, symbol=None, exchange=None, end_time=None, size=None, interval=None, product_type=None):
-        """Candlestick data (SWAP/SPOT, multi-exchange) — $0.00001/call"""
+        """Candlestick data (SWAP/SPOT, multi-exchange) — $0.001/call"""
         return self._client._get("/api/v1/coinank/kline/lists", {"symbol": symbol, "exchange": exchange, "endTime": end_time, "size": size, "interval": interval, "productType": product_type})
 
 
@@ -15,23 +15,23 @@ class CoinankEtf:
         self._client = client
 
     def us_btc(self):
-        """US Bitcoin ETF list (IBIT, FBTC, etc.) — $0.00001/call"""
+        """US Bitcoin ETF list (IBIT, FBTC, etc.) — $0.001/call"""
         return self._client._get("/api/v1/coinank/etf/us-btc", None)
 
     def us_eth(self):
-        """US Ethereum ETF list — $0.00001/call"""
+        """US Ethereum ETF list — $0.001/call"""
         return self._client._get("/api/v1/coinank/etf/us-eth", None)
 
     def us_btc_inflow(self):
-        """US BTC ETF historical net inflow data — $0.00001/call"""
+        """US BTC ETF historical net inflow data — $0.001/call"""
         return self._client._get("/api/v1/coinank/etf/us-btc-inflow", None)
 
     def us_eth_inflow(self):
-        """US ETH ETF historical net inflow data — $0.00001/call"""
+        """US ETH ETF historical net inflow data — $0.001/call"""
         return self._client._get("/api/v1/coinank/etf/us-eth-inflow", None)
 
     def hk_inflow(self):
-        """Hong Kong ETF historical net inflow data — $0.00001/call"""
+        """Hong Kong ETF historical net inflow data — $0.001/call"""
         return self._client._get("/api/v1/coinank/etf/hk-inflow", None)
 
 
@@ -40,11 +40,11 @@ class CoinankHyper:
         self._client = client
 
     def top_position(self, sort_by=None, sort_type=None, page=None, size=None):
-        """HyperLiquid whale position rankings — $0.00001/call"""
+        """HyperLiquid whale position rankings — $0.001/call"""
         return self._client._get("/api/v1/coinank/hyper/top-position", {"sortBy": sort_by, "sortType": sort_type, "page": page, "size": size})
 
     def top_action(self):
-        """HyperLiquid whale latest trade actions — $0.00001/call"""
+        """HyperLiquid whale latest trade actions — $0.001/call"""
         return self._client._get("/api/v1/coinank/hyper/top-action", None)
 
 
@@ -53,7 +53,7 @@ class CoinankTrades:
         self._client = client
 
     def large(self, symbol=None, product_type=None, amount=None, end_time=None, size=None):
-        """Large market order list (whale trade monitor) — $0.00001/call"""
+        """Large market order list (whale trade monitor) — $0.001/call"""
         return self._client._get("/api/v1/coinank/trades/large", {"symbol": symbol, "productType": product_type, "amount": amount, "endTime": end_time, "size": size})
 
 
@@ -62,7 +62,7 @@ class CoinankBigOrder:
         self._client = client
 
     def list(self, symbol=None, exchange_type=None, size=None, amount=None, side=None, exchange=None, is_history=None, start_time=None):
-        """Large limit order list — $0.00001/call"""
+        """Large limit order list — $0.001/call"""
         return self._client._get("/api/v1/coinank/big-order/list", {"symbol": symbol, "exchangeType": exchange_type, "size": size, "amount": amount, "side": side, "exchange": exchange, "isHistory": is_history, "startTime": start_time})
 
 
@@ -71,7 +71,7 @@ class CoinankPrice:
         self._client = client
 
     def last(self, symbol=None, exchange=None, product_type=None):
-        """Trading pair latest real-time price — $0.00001/call"""
+        """Trading pair latest real-time price — $0.001/call"""
         return self._client._get("/api/v1/coinank/price/last", {"symbol": symbol, "exchange": exchange, "productType": product_type})
 
 
@@ -80,15 +80,15 @@ class CoinankCoin:
         self._client = client
 
     def market_cap(self, base_coin=None):
-        """Coin market cap information — $0.00001/call"""
+        """Coin market cap information — $0.001/call"""
         return self._client._get("/api/v1/coinank/coin/market-cap", {"baseCoin": base_coin})
 
     def list(self, product_type=None):
-        """Supported coins list — $0.00001/call"""
+        """Supported coins list — $0.001/call"""
         return self._client._get("/api/v1/coinank/coin/list", {"productType": product_type})
 
     def symbols(self, exchange=None, product_type=None):
-        """Supported trading pairs list (by exchange) — $0.00001/call"""
+        """Supported trading pairs list (by exchange) — $0.001/call"""
         return self._client._get("/api/v1/coinank/coin/symbols", {"exchange": exchange, "productType": product_type})
 
 
@@ -97,27 +97,27 @@ class CoinankLongshort:
         self._client = client
 
     def buy_sell(self, base_coin=None, interval=None, end_time=None, size=None):
-        """Global long/short buy-sell ratio history — $0.00001/call"""
+        """Global long/short buy-sell ratio history — $0.001/call"""
         return self._client._get("/api/v1/coinank/longshort/buy-sell", {"baseCoin": base_coin, "interval": interval, "endTime": end_time, "size": size})
 
     def realtime(self, base_coin=None, interval=None):
-        """Real-time long/short ratio by exchange — $0.00001/call"""
+        """Real-time long/short ratio by exchange — $0.001/call"""
         return self._client._get("/api/v1/coinank/longshort/realtime", {"baseCoin": base_coin, "interval": interval})
 
     def person(self, exchange=None, symbol=None, interval=None, end_time=None, size=None):
-        """Long/short account count ratio history (Binance/OKX/Bybit) — $0.00001/call"""
+        """Long/short account count ratio history (Binance/OKX/Bybit) — $0.001/call"""
         return self._client._get("/api/v1/coinank/longshort/person", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size})
 
     def position(self, exchange=None, symbol=None, interval=None, end_time=None, size=None):
-        """Whale long/short position ratio (by position size) — $0.00001/call"""
+        """Whale long/short position ratio (by position size) — $0.001/call"""
         return self._client._get("/api/v1/coinank/longshort/position", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size})
 
     def account(self, exchange=None, symbol=None, interval=None, end_time=None, size=None):
-        """Whale long/short ratio by account count (VIP1) — $0.00001/call"""
+        """Whale long/short ratio by account count (VIP1) — $0.001/call"""
         return self._client._get("/api/v1/coinank/longshort/account", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size})
 
     def kline(self, exchange=None, symbol=None, interval=None, end_time=None, size=None, type_=None):
-        """Long/short ratio candlestick (VIP1; type: longShortPerson/Position/Account) — $0.00001/call"""
+        """Long/short ratio candlestick (VIP1; type: longShortPerson/Position/Account) — $0.001/call"""
         return self._client._get("/api/v1/coinank/longshort/kline", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size, "type": type_})
 
 
@@ -126,35 +126,35 @@ class CoinankMarketOrder:
         self._client = client
 
     def cvd(self, exchange=None, symbol=None, interval=None, end_time=None, size=None, product_type=None):
-        """CVD cumulative volume delta — single pair (VIP3) — $0.00001/call"""
+        """CVD cumulative volume delta — single pair (VIP3) — $0.001/call"""
         return self._client._get("/api/v1/coinank/market-order/cvd", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size, "productType": product_type})
 
     def buy_sell_count(self, exchange=None, symbol=None, interval=None, end_time=None, size=None, product_type=None):
-        """Market buy/sell order count — single pair (VIP3) — $0.00001/call"""
+        """Market buy/sell order count — single pair (VIP3) — $0.001/call"""
         return self._client._get("/api/v1/coinank/market-order/buy-sell-count", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size, "productType": product_type})
 
     def buy_sell_value(self, exchange=None, symbol=None, interval=None, end_time=None, size=None, product_type=None):
-        """Market buy/sell value in USD — single pair (VIP3) — $0.00001/call"""
+        """Market buy/sell value in USD — single pair (VIP3) — $0.001/call"""
         return self._client._get("/api/v1/coinank/market-order/buy-sell-value", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size, "productType": product_type})
 
     def buy_sell_volume(self, exchange=None, symbol=None, interval=None, end_time=None, size=None, product_type=None):
-        """Market buy/sell volume in coins — single pair (VIP3) — $0.00001/call"""
+        """Market buy/sell volume in coins — single pair (VIP3) — $0.001/call"""
         return self._client._get("/api/v1/coinank/market-order/buy-sell-volume", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size, "productType": product_type})
 
     def agg_cvd(self, base_coin=None, interval=None, end_time=None, size=None, product_type=None, exchanges=None):
-        """Aggregated CVD across exchanges (VIP3) — $0.00001/call"""
+        """Aggregated CVD across exchanges (VIP3) — $0.001/call"""
         return self._client._get("/api/v1/coinank/market-order/agg-cvd", {"baseCoin": base_coin, "interval": interval, "endTime": end_time, "size": size, "productType": product_type, "exchanges": exchanges})
 
     def agg_buy_sell_count(self, base_coin=None, interval=None, end_time=None, size=None, product_type=None, exchanges=None):
-        """Aggregated buy/sell count across exchanges (VIP3) — $0.00001/call"""
+        """Aggregated buy/sell count across exchanges (VIP3) — $0.001/call"""
         return self._client._get("/api/v1/coinank/market-order/agg-buy-sell-count", {"baseCoin": base_coin, "interval": interval, "endTime": end_time, "size": size, "productType": product_type, "exchanges": exchanges})
 
     def agg_buy_sell_value(self, base_coin=None, interval=None, end_time=None, size=None, product_type=None, exchanges=None):
-        """Aggregated buy/sell value across exchanges (VIP3) — $0.00001/call"""
+        """Aggregated buy/sell value across exchanges (VIP3) — $0.001/call"""
         return self._client._get("/api/v1/coinank/market-order/agg-buy-sell-value", {"baseCoin": base_coin, "interval": interval, "endTime": end_time, "size": size, "productType": product_type, "exchanges": exchanges})
 
     def agg_buy_sell_volume(self, base_coin=None, interval=None, end_time=None, size=None, product_type=None, exchanges=None):
-        """Aggregated buy/sell volume across exchanges (VIP3) — $0.00001/call"""
+        """Aggregated buy/sell volume across exchanges (VIP3) — $0.001/call"""
         return self._client._get("/api/v1/coinank/market-order/agg-buy-sell-volume", {"baseCoin": base_coin, "interval": interval, "endTime": end_time, "size": size, "productType": product_type, "exchanges": exchanges})
 
 
@@ -163,11 +163,11 @@ class CoinankNews:
         self._client = client
 
     def list(self, type_=None, lang=None, page=None, page_size=None, is_popular=None, search=None):
-        """News/flash list (type:1=flash,2=news; lang:zh/en) — $0.00001/call"""
+        """News/flash list (type:1=flash,2=news; lang:zh/en) — $0.001/call"""
         return self._client._get("/api/v1/coinank/news/list", {"type": type_, "lang": lang, "page": page, "pageSize": page_size, "isPopular": is_popular, "search": search})
 
     def detail(self, id_=None):
-        """News/flash detail (id from news/list) — $0.00001/call"""
+        """News/flash detail (id from news/list) — $0.001/call"""
         return self._client._get("/api/v1/coinank/news/detail", {"id": id_})
 
 
@@ -176,43 +176,43 @@ class CoinankIndicator:
         self._client = client
 
     def btc_multiplier(self):
-        """BTC 2-year MA multiplier indicator — $0.00001/call"""
+        """BTC 2-year MA multiplier indicator — $0.001/call"""
         return self._client._get("/api/v1/coinank/indicator/btc-multiplier", None)
 
     def fear_greed(self):
-        """Crypto fear & greed index — $0.00001/call"""
+        """Crypto fear & greed index — $0.001/call"""
         return self._client._get("/api/v1/coinank/indicator/fear-greed", None)
 
     def ahr999(self):
-        """AHR999 Bitcoin accumulation indicator — $0.00001/call"""
+        """AHR999 Bitcoin accumulation indicator — $0.001/call"""
         return self._client._get("/api/v1/coinank/indicator/ahr999", None)
 
     def puell_multiple(self):
-        """Puell Multiple indicator — $0.00001/call"""
+        """Puell Multiple indicator — $0.001/call"""
         return self._client._get("/api/v1/coinank/indicator/puell-multiple", None)
 
     def btc_pi(self):
-        """Pi Cycle Top indicator — $0.00001/call"""
+        """Pi Cycle Top indicator — $0.001/call"""
         return self._client._get("/api/v1/coinank/indicator/btc-pi", None)
 
     def ma_heatmap(self):
-        """200-week moving average heatmap — $0.00001/call"""
+        """200-week moving average heatmap — $0.001/call"""
         return self._client._get("/api/v1/coinank/indicator/ma-heatmap", None)
 
     def altcoin_season(self):
-        """Altcoin Season Index — $0.00001/call"""
+        """Altcoin Season Index — $0.001/call"""
         return self._client._get("/api/v1/coinank/indicator/altcoin-season", None)
 
     def market_cap_rank(self, symbol=None):
-        """Coin market cap dominance rankings — $0.00001/call"""
+        """Coin market cap dominance rankings — $0.001/call"""
         return self._client._get("/api/v1/coinank/indicator/market-cap-rank", {"symbol": symbol})
 
     def grayscale(self, symbol=None):
-        """Grayscale holdings data (GBTC/ETHE, etc.) — $0.00001/call"""
+        """Grayscale holdings data (GBTC/ETHE, etc.) — $0.001/call"""
         return self._client._get("/api/v1/coinank/indicator/grayscale", {"symbol": symbol})
 
     def charts(self, type_=None):
-        """Composite indicator charts (type=bitcoin-rainbow-v2) — $0.00001/call"""
+        """Composite indicator charts (type=bitcoin-rainbow-v2) — $0.001/call"""
         return self._client._get("/api/v1/coinank/indicator/charts", {"type": type_})
 
 
@@ -221,31 +221,31 @@ class CoinankOi:
         self._client = client
 
     def all(self, base_coin=None):
-        """Real-time open interest list by exchange — $0.00001/call"""
+        """Real-time open interest list by exchange — $0.001/call"""
         return self._client._get("/api/v1/coinank/oi/all", {"baseCoin": base_coin})
 
     def agg_chart(self, base_coin=None, exchange=None, interval=None, size=None, type_=None, end_time=None):
-        """Coin aggregated OI history (exchange=empty for all) — $0.00001/call"""
+        """Coin aggregated OI history (exchange=empty for all) — $0.001/call"""
         return self._client._get("/api/v1/coinank/oi/agg-chart", {"baseCoin": base_coin, "exchange": exchange, "interval": interval, "size": size, "type": type_, "endTime": end_time})
 
     def symbol_chart(self, exchange=None, symbol=None, interval=None, end_time=None, size=None, type_=None):
-        """Trading pair open interest history — $0.00001/call"""
+        """Trading pair open interest history — $0.001/call"""
         return self._client._get("/api/v1/coinank/oi/symbol-chart", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size, "type": type_})
 
     def kline(self, exchange=None, symbol=None, interval=None, end_time=None, size=None):
-        """Trading pair open interest candlestick — $0.00001/call"""
+        """Trading pair open interest candlestick — $0.001/call"""
         return self._client._get("/api/v1/coinank/oi/kline", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size})
 
     def agg_kline(self, base_coin=None, interval=None, end_time=None, size=None):
-        """Aggregated open interest candlestick — $0.00001/call"""
+        """Aggregated open interest candlestick — $0.001/call"""
         return self._client._get("/api/v1/coinank/oi/agg-kline", {"baseCoin": base_coin, "interval": interval, "endTime": end_time, "size": size})
 
     def by_exchange(self, base_coin=None):
-        """Real-time open interest breakdown by exchange — $0.00001/call"""
+        """Real-time open interest breakdown by exchange — $0.001/call"""
         return self._client._get("/api/v1/coinank/oi/by-exchange", {"baseCoin": base_coin})
 
     def vs_market_cap_hist(self, base_coin=None, end_time=None, size=None, interval=None):
-        """Historical open interest to market cap ratio — $0.00001/call"""
+        """Historical open interest to market cap ratio — $0.001/call"""
         return self._client._get("/api/v1/coinank/oi/vs-market-cap-hist", {"baseCoin": base_coin, "endTime": end_time, "size": size, "interval": interval})
 
 
@@ -254,35 +254,35 @@ class CoinankRank:
         self._client = client
 
     def screener(self, interval=None):
-        """Visual screener (multi-dimensional rankings) — $0.00001/call"""
+        """Visual screener (multi-dimensional rankings) — $0.001/call"""
         return self._client._get("/api/v1/coinank/rank/screener", {"interval": interval})
 
     def oi_vs_market_cap(self, page=None, size=None, sort_by=None, sort_type=None):
-        """Open interest vs market cap rankings (VIP2) — $0.00001/call"""
+        """Open interest vs market cap rankings (VIP2) — $0.001/call"""
         return self._client._get("/api/v1/coinank/rank/oi-vs-market-cap", {"page": page, "size": size, "sortBy": sort_by, "sortType": sort_type})
 
     def long_short(self, sort_by=None, sort_type=None, size=None, page=None):
-        """Long/short account count ratio rankings — $0.00001/call"""
+        """Long/short account count ratio rankings — $0.001/call"""
         return self._client._get("/api/v1/coinank/rank/long-short", {"sortBy": sort_by, "sortType": sort_type, "size": size, "page": page})
 
     def oi(self, sort_by=None, sort_type=None, size=None, page=None):
-        """Open interest amount rankings — $0.00001/call"""
+        """Open interest amount rankings — $0.001/call"""
         return self._client._get("/api/v1/coinank/rank/oi", {"sortBy": sort_by, "sortType": sort_type, "size": size, "page": page})
 
     def trade_count(self, product_type=None, sort_by=None, sort_type=None):
-        """Trade count rankings (VIP2; sortBy: h1Count/h4Count/d1Count) — $0.00001/call"""
+        """Trade count rankings (VIP2; sortBy: h1Count/h4Count/d1Count) — $0.001/call"""
         return self._client._get("/api/v1/coinank/rank/trade-count", {"productType": product_type, "sortBy": sort_by, "sortType": sort_type})
 
     def liquidation(self, sort_by=None, sort_type=None, page=None, size=None):
-        """Liquidation amount rankings — $0.00001/call"""
+        """Liquidation amount rankings — $0.001/call"""
         return self._client._get("/api/v1/coinank/rank/liquidation", {"sortBy": sort_by, "sortType": sort_type, "page": page, "size": size})
 
     def price(self, sort_by=None, sort_type=None):
-        """Price change rankings (sortBy: priceChangeH24/priceChangeH1) — $0.00001/call"""
+        """Price change rankings (sortBy: priceChangeH24/priceChangeH1) — $0.001/call"""
         return self._client._get("/api/v1/coinank/rank/price", {"sortBy": sort_by, "sortType": sort_type})
 
     def volume(self, sort_by=None, sort_type=None):
-        """Volume change rankings (sortBy: h24Volume/h1Volume) — $0.00001/call"""
+        """Volume change rankings (sortBy: h24Volume/h1Volume) — $0.001/call"""
         return self._client._get("/api/v1/coinank/rank/volume", {"sortBy": sort_by, "sortType": sort_type})
 
 
@@ -291,35 +291,35 @@ class CoinankLiquidation:
         self._client = client
 
     def intervals(self, base_coin=None):
-        """Liquidation statistics across time periods — $0.00001/call"""
+        """Liquidation statistics across time periods — $0.001/call"""
         return self._client._get("/api/v1/coinank/liquidation/intervals", {"baseCoin": base_coin})
 
     def agg_history(self, base_coin=None, interval=None, end_time=None, size=None):
-        """Aggregated liquidation history — $0.00001/call"""
+        """Aggregated liquidation history — $0.001/call"""
         return self._client._get("/api/v1/coinank/liquidation/agg-history", {"baseCoin": base_coin, "interval": interval, "endTime": end_time, "size": size})
 
     def history(self, exchange=None, symbol=None, interval=None, end_time=None, size=None):
-        """Trading pair liquidation history — $0.00001/call"""
+        """Trading pair liquidation history — $0.001/call"""
         return self._client._get("/api/v1/coinank/liquidation/history", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size})
 
     def orders(self, base_coin=None, exchange=None, side=None, amount=None, end_time=None):
-        """Liquidation order list — $0.00001/call"""
+        """Liquidation order list — $0.001/call"""
         return self._client._get("/api/v1/coinank/liquidation/orders", {"baseCoin": base_coin, "exchange": exchange, "side": side, "amount": amount, "endTime": end_time})
 
     def liq_map(self, symbol=None, exchange=None, interval=None):
-        """Liquidation map (price level distribution) — $0.00001/call"""
+        """Liquidation map (price level distribution) — $0.001/call"""
         return self._client._get("/api/v1/coinank/liquidation/liq-map", {"symbol": symbol, "exchange": exchange, "interval": interval})
 
     def agg_liq_map(self, base_coin=None, interval=None):
-        """Aggregated liquidation map (VIP4) — $0.00001/call"""
+        """Aggregated liquidation map (VIP4) — $0.001/call"""
         return self._client._get("/api/v1/coinank/liquidation/agg-liq-map", {"baseCoin": base_coin, "interval": interval})
 
     def heat_map(self, exchange=None, symbol=None, interval=None):
-        """Liquidation heatmap — $0.00001/call"""
+        """Liquidation heatmap — $0.001/call"""
         return self._client._get("/api/v1/coinank/liquidation/heat-map", {"exchange": exchange, "symbol": symbol, "interval": interval})
 
     def heat_map_symbols(self):
-        """Supported symbols for liquidation heatmap — $0.00001/call"""
+        """Supported symbols for liquidation heatmap — $0.001/call"""
         return self._client._get("/api/v1/coinank/liquidation/heat-map-symbols", None)
 
 
@@ -328,15 +328,15 @@ class CoinankOrderbook:
         self._client = client
 
     def by_symbol(self, symbol=None, exchange=None, rate=None, product_type=None, interval=None, end_time=None, size=None):
-        """Order book depth history by trading pair (VIP3) — $0.00001/call"""
+        """Order book depth history by trading pair (VIP3) — $0.001/call"""
         return self._client._get("/api/v1/coinank/orderbook/by-symbol", {"symbol": symbol, "exchange": exchange, "rate": rate, "productType": product_type, "interval": interval, "endTime": end_time, "size": size})
 
     def by_exchange(self, base_coin=None, product_type=None, interval=None, end_time=None, size=None, exchanges=None, type_=None):
-        """Order book depth history by exchange (VIP3) — $0.00001/call"""
+        """Order book depth history by exchange (VIP3) — $0.001/call"""
         return self._client._get("/api/v1/coinank/orderbook/by-exchange", {"baseCoin": base_coin, "productType": product_type, "interval": interval, "endTime": end_time, "size": size, "exchanges": exchanges, "type": type_})
 
     def heatmap(self, exchange=None, symbol=None, interval=None, end_time=None, size=None):
-        """Order book liquidity heatmap (VIP4) — $0.00001/call"""
+        """Order book liquidity heatmap (VIP4) — $0.001/call"""
         return self._client._get("/api/v1/coinank/orderbook/heatmap", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size})
 
 
@@ -345,11 +345,11 @@ class CoinankFund:
         self._client = client
 
     def realtime(self, product_type=None, page=None, size=None, sort_by=None, sort_type=None, base_coin=None):
-        """Real-time fund flow rankings (sortBy: h1net/h4net/h8net/h24net) — $0.00001/call"""
+        """Real-time fund flow rankings (sortBy: h1net/h4net/h8net/h24net) — $0.001/call"""
         return self._client._get("/api/v1/coinank/fund/realtime", {"productType": product_type, "page": page, "size": size, "sortBy": sort_by, "sortType": sort_type, "baseCoin": base_coin})
 
     def history(self, base_coin=None, end_time=None, product_type=None, size=None, interval=None):
-        """Historical fund flow data — $0.00001/call"""
+        """Historical fund flow data — $0.001/call"""
         return self._client._get("/api/v1/coinank/fund/history", {"baseCoin": base_coin, "endTime": end_time, "productType": product_type, "size": size, "interval": interval})
 
 
@@ -358,7 +358,7 @@ class CoinankOrderFlow:
         self._client = client
 
     def lists(self, exchange=None, symbol=None, interval=None, end_time=None, size=None, product_type=None, tick_count=None):
-        """Order flow data — $0.00001/call"""
+        """Order flow data — $0.001/call"""
         return self._client._get("/api/v1/coinank/order-flow/lists", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size, "productType": product_type, "tickCount": tick_count})
 
 
@@ -367,31 +367,31 @@ class CoinankFundingRate:
         self._client = client
 
     def hist(self, base_coin=None, exchange_type=None, end_time=None, size=None):
-        """Historical funding rates (cross-exchange) — $0.00001/call"""
+        """Historical funding rates (cross-exchange) — $0.001/call"""
         return self._client._get("/api/v1/coinank/funding-rate/hist", {"baseCoin": base_coin, "exchangeType": exchange_type, "endTime": end_time, "size": size})
 
     def current(self, type_=None):
-        """Real-time funding rate rankings (type: current/day/week/month/year) — $0.00001/call"""
+        """Real-time funding rate rankings (type: current/day/week/month/year) — $0.001/call"""
         return self._client._get("/api/v1/coinank/funding-rate/current", {"type": type_})
 
     def accumulated(self, type_=None):
-        """Accumulated funding rates (type: day/week/month/year) — $0.00001/call"""
+        """Accumulated funding rates (type: day/week/month/year) — $0.001/call"""
         return self._client._get("/api/v1/coinank/funding-rate/accumulated", {"type": type_})
 
     def indicator(self, exchange=None, symbol=None, interval=None, end_time=None, size=None):
-        """Trading pair funding rate history (VIP1) — $0.00001/call"""
+        """Trading pair funding rate history (VIP1) — $0.001/call"""
         return self._client._get("/api/v1/coinank/funding-rate/indicator", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size})
 
     def kline(self, exchange=None, symbol=None, interval=None, end_time=None, size=None):
-        """Funding rate candlestick — $0.00001/call"""
+        """Funding rate candlestick — $0.001/call"""
         return self._client._get("/api/v1/coinank/funding-rate/kline", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size})
 
     def weighted(self, base_coin=None, interval=None, end_time=None, size=None):
-        """Weighted average funding rate — $0.00001/call"""
+        """Weighted average funding rate — $0.001/call"""
         return self._client._get("/api/v1/coinank/funding-rate/weighted", {"baseCoin": base_coin, "interval": interval, "endTime": end_time, "size": size})
 
     def heatmap(self, type_=None, interval=None):
-        """Funding rate heatmap (type: openInterest/marketCap) — $0.00001/call"""
+        """Funding rate heatmap (type: openInterest/marketCap) — $0.001/call"""
         return self._client._get("/api/v1/coinank/funding-rate/heatmap", {"type": type_, "interval": interval})
 
 
@@ -400,7 +400,7 @@ class CoinankRsi:
         self._client = client
 
     def list(self, interval=None, exchange=None):
-        """RSI screener (interval uppercase: 1H/4H/1D) — $0.00001/call"""
+        """RSI screener (interval uppercase: 1H/4H/1D) — $0.001/call"""
         return self._client._get("/api/v1/coinank/rsi/list", {"interval": interval, "exchange": exchange})
 
 
@@ -428,5 +428,5 @@ class CoinankResource:
         self.rsi = CoinankRsi(client)
 
     def net_positions(self, exchange=None, symbol=None, interval=None, end_time=None, size=None):
-        """Net long/short positions historical data — $0.00001/call"""
+        """Net long/short positions historical data — $0.001/call"""
         return self._client._get("/api/v1/coinank/net-positions", {"exchange": exchange, "symbol": symbol, "interval": interval, "endTime": end_time, "size": size})

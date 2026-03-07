@@ -26,3 +26,4 @@ class DeepseekResource:
     def __init__(self, client):
         self._client = client
         self.deepseek = DeepseekDeepseek(client)
+

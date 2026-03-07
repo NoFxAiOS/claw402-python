@@ -19,11 +19,11 @@ class NofxosAi300:
         self._client = client
 
     def list(self, limit=None):
-        """AI300 quant model rankings (by fund flow strength) — $0.00001/call"""
+        """AI300 quant model rankings (by fund flow strength) — $0.001/call"""
         return self._client._get("/api/v1/nofx/ai300/list", {"limit": limit})
 
     def stats(self):
-        """AI300 model statistics (by signal strength distribution) — $0.00001/call"""
+        """AI300 model statistics (by signal strength distribution) — $0.001/call"""
         return self._client._get("/api/v1/nofx/ai300/stats", None)
 
 
@@ -32,11 +32,11 @@ class NofxosOi:
         self._client = client
 
     def top_ranking(self, limit=None, duration=None):
-        """Top open interest increase rankings — $0.00001/call"""
+        """Top open interest increase rankings — $0.001/call"""
         return self._client._get("/api/v1/nofx/oi/top-ranking", {"limit": limit, "duration": duration})
 
     def low_ranking(self, limit=None, duration=None):
-        """Top open interest decrease rankings — $0.00001/call"""
+        """Top open interest decrease rankings — $0.001/call"""
         return self._client._get("/api/v1/nofx/oi/low-ranking", {"limit": limit, "duration": duration})
 
 
@@ -45,11 +45,11 @@ class NofxosNetflow:
         self._client = client
 
     def top_ranking(self, limit=None, duration=None, type_=None, trade=None):
-        """Top net capital inflow rankings — $0.00001/call"""
+        """Top net capital inflow rankings — $0.001/call"""
         return self._client._get("/api/v1/nofx/netflow/top-ranking", {"limit": limit, "duration": duration, "type": type_, "trade": trade})
 
     def low_ranking(self, limit=None, duration=None, type_=None, trade=None):
-        """Top net capital outflow rankings — $0.00001/call"""
+        """Top net capital outflow rankings — $0.001/call"""
         return self._client._get("/api/v1/nofx/netflow/low-ranking", {"limit": limit, "duration": duration, "type": type_, "trade": trade})
 
 
@@ -58,7 +58,7 @@ class NofxosPrice:
         self._client = client
 
     def ranking(self, duration=None):
-        """Price change rankings (gainers & losers) — $0.00001/call"""
+        """Price change rankings (gainers & losers) — $0.001/call"""
         return self._client._get("/api/v1/nofx/price/ranking", {"duration": duration})
 
 
@@ -67,7 +67,7 @@ class NofxosLongShort:
         self._client = client
 
     def list(self, limit=None):
-        """Long/short ratio anomaly coin list — $0.00001/call"""
+        """Long/short ratio anomaly coin list — $0.001/call"""
         return self._client._get("/api/v1/nofx/long-short/list", {"limit": limit})
 
 
@@ -76,11 +76,11 @@ class NofxosFundingRate:
         self._client = client
 
     def top(self, limit=None):
-        """Top positive funding rate rankings — $0.00001/call"""
+        """Top positive funding rate rankings — $0.001/call"""
         return self._client._get("/api/v1/nofx/funding-rate/top", {"limit": limit})
 
     def low(self, limit=None):
-        """Top negative funding rate rankings — $0.00001/call"""
+        """Top negative funding rate rankings — $0.001/call"""
         return self._client._get("/api/v1/nofx/funding-rate/low", {"limit": limit})
 
 
@@ -89,7 +89,7 @@ class NofxosOiCap:
         self._client = client
 
     def ranking(self, limit=None):
-        """Open interest market cap rankings — $0.00001/call"""
+        """Open interest market cap rankings — $0.001/call"""
         return self._client._get("/api/v1/nofx/oi-cap/ranking", {"limit": limit})
 
 
@@ -98,15 +98,15 @@ class NofxosUpbit:
         self._client = client
 
     def hot(self, limit=None):
-        """Upbit hot coins rankings (by trading volume) — $0.00001/call"""
+        """Upbit hot coins rankings (by trading volume) — $0.001/call"""
         return self._client._get("/api/v1/nofx/upbit/hot", {"limit": limit})
 
     def netflow_top_ranking(self, limit=None, duration=None):
-        """Upbit net inflow rankings — $0.00001/call"""
+        """Upbit net inflow rankings — $0.001/call"""
         return self._client._get("/api/v1/nofx/upbit/netflow/top-ranking", {"limit": limit, "duration": duration})
 
     def netflow_low_ranking(self, limit=None, duration=None):
-        """Upbit net outflow rankings — $0.00001/call"""
+        """Upbit net outflow rankings — $0.001/call"""
         return self._client._get("/api/v1/nofx/upbit/netflow/low-ranking", {"limit": limit, "duration": duration})
 
 
@@ -115,7 +115,7 @@ class NofxosHeatmap:
         self._client = client
 
     def list(self, trade=None, limit=None):
-        """Order book heatmap overview (all coins) — $0.00001/call"""
+        """Order book heatmap overview (all coins) — $0.001/call"""
         return self._client._get("/api/v1/nofx/heatmap/list", {"trade": trade, "limit": limit})
 
 
@@ -124,7 +124,7 @@ class NofxosQueryRank:
         self._client = client
 
     def list(self, limit=None):
-        """Today's most searched coin rankings — $0.00001/call"""
+        """Today's most searched coin rankings — $0.001/call"""
         return self._client._get("/api/v1/nofx/query-rank/list", {"limit": limit})
 
 

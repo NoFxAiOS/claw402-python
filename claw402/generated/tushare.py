@@ -6,67 +6,67 @@ class TushareCn:
         self._client = client
 
     def daily(self, ts_code=None, trade_date=None, start_date=None, end_date=None):
-        """A-share daily OHLCV + price change — $0.00001/call"""
+        """A-share daily OHLCV + price change — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/daily", {"ts_code": ts_code, "trade_date": trade_date, "start_date": start_date, "end_date": end_date})
 
     def weekly(self, ts_code=None, trade_date=None, start_date=None, end_date=None):
-        """A-share weekly OHLCV — $0.00001/call"""
+        """A-share weekly OHLCV — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/weekly", {"ts_code": ts_code, "trade_date": trade_date, "start_date": start_date, "end_date": end_date})
 
     def monthly(self, ts_code=None, trade_date=None, start_date=None, end_date=None):
-        """A-share monthly OHLCV — $0.00001/call"""
+        """A-share monthly OHLCV — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/monthly", {"ts_code": ts_code, "trade_date": trade_date, "start_date": start_date, "end_date": end_date})
 
     def daily_basic(self, ts_code=None, trade_date=None, start_date=None, end_date=None):
-        """Daily valuation metrics: PE, PB, turnover rate, market cap — $0.00001/call"""
+        """Daily valuation metrics: PE, PB, turnover rate, market cap — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/daily-basic", {"ts_code": ts_code, "trade_date": trade_date, "start_date": start_date, "end_date": end_date})
 
     def stock_basic(self, exchange=None, list_status=None, is_hs=None):
-        """A-share stock list: code, name, listing date, industry — $0.00001/call"""
+        """A-share stock list: code, name, listing date, industry — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/stock-basic", {"exchange": exchange, "list_status": list_status, "is_hs": is_hs})
 
     def trade_cal(self, exchange=None, start_date=None, end_date=None, is_open=None):
-        """Trading calendar — open/closed market days — $0.00001/call"""
+        """Trading calendar — open/closed market days — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/trade-cal", {"exchange": exchange, "start_date": start_date, "end_date": end_date, "is_open": is_open})
 
     def income(self, ts_code=None, ann_date=None, start_date=None, end_date=None, period=None, report_type=None):
-        """Income statement: revenue, net profit, gross margin — $0.00001/call"""
+        """Income statement: revenue, net profit, gross margin — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/income", {"ts_code": ts_code, "ann_date": ann_date, "start_date": start_date, "end_date": end_date, "period": period, "report_type": report_type})
 
     def balance_sheet(self, ts_code=None, ann_date=None, start_date=None, end_date=None, period=None, report_type=None):
-        """Balance sheet: assets, liabilities, equity — $0.00001/call"""
+        """Balance sheet: assets, liabilities, equity — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/balance-sheet", {"ts_code": ts_code, "ann_date": ann_date, "start_date": start_date, "end_date": end_date, "period": period, "report_type": report_type})
 
     def cash_flow(self, ts_code=None, ann_date=None, start_date=None, end_date=None, period=None, report_type=None):
-        """Cash flow statement: operating, investing, financing — $0.00001/call"""
+        """Cash flow statement: operating, investing, financing — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/cash-flow", {"ts_code": ts_code, "ann_date": ann_date, "start_date": start_date, "end_date": end_date, "period": period, "report_type": report_type})
 
     def dividend(self, ts_code=None, ann_date=None, record_date=None, ex_date=None, imp_ann_date=None):
-        """Historical dividends and rights offerings — $0.00001/call"""
+        """Historical dividends and rights offerings — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/dividend", {"ts_code": ts_code, "ann_date": ann_date, "record_date": record_date, "ex_date": ex_date, "imp_ann_date": imp_ann_date})
 
     def northbound(self, trade_date=None, start_date=None, end_date=None):
-        """Northbound capital flow (Stock Connect daily net inflow) — $0.00001/call"""
+        """Northbound capital flow (Stock Connect daily net inflow) — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/northbound", {"trade_date": trade_date, "start_date": start_date, "end_date": end_date})
 
     def moneyflow(self, ts_code=None, trade_date=None, start_date=None, end_date=None):
-        """Individual stock capital flow: big money vs. retail net inflow — $0.00001/call"""
+        """Individual stock capital flow: big money vs. retail net inflow — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/moneyflow", {"ts_code": ts_code, "trade_date": trade_date, "start_date": start_date, "end_date": end_date})
 
     def margin(self, trade_date=None, start_date=None, end_date=None, exchange_id=None):
-        """Margin trading summary: total margin balance — $0.00001/call"""
+        """Margin trading summary: total margin balance — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/margin", {"trade_date": trade_date, "start_date": start_date, "end_date": end_date, "exchange_id": exchange_id})
 
     def margin_detail(self, ts_code=None, trade_date=None, start_date=None, end_date=None):
-        """Per-stock margin trading detail (rzye, rqye) — $0.00001/call"""
+        """Per-stock margin trading detail (rzye, rqye) — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/margin-detail", {"ts_code": ts_code, "trade_date": trade_date, "start_date": start_date, "end_date": end_date})
 
     def top_list(self, trade_date=None, ts_code=None):
-        """Dragon-Tiger list — notable institutional activity stocks — $0.00001/call"""
+        """Dragon-Tiger list — notable institutional activity stocks — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/top-list", {"trade_date": trade_date, "ts_code": ts_code})
 
     def top_inst(self, trade_date=None, ts_code=None):
-        """Dragon-Tiger institutional seat buy/sell details — $0.00001/call"""
+        """Dragon-Tiger institutional seat buy/sell details — $0.001/call"""
         return self._client._get("/api/v1/stocks/cn/top-inst", {"trade_date": trade_date, "ts_code": ts_code})
 
 

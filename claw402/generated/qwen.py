@@ -34,3 +34,4 @@ class QwenResource:
     def __init__(self, client):
         self._client = client
         self.qwen = QwenQwen(client)
+

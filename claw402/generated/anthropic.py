@@ -5,16 +5,8 @@ class AnthropicAnthropic:
     def __init__(self, client):
         self._client = client
 
-    def messages(self, body: dict):
-        """Messages API with Claude Sonnet (default) — $0.01/call"""
-        return self._client._post("/api/v1/ai/anthropic/messages", body)
-
-    def messages_haiku(self, body: dict):
-        """Messages API with Claude Haiku (faster, cheaper) — $0.003/call"""
-        return self._client._post("/api/v1/ai/anthropic/messages/haiku", body)
-
     def messages_opus(self, body: dict):
-        """Messages API with Claude Opus (strongest reasoning) — $0.05/call"""
+        """Messages API with Claude Opus (strongest reasoning) — $0.12/call"""
         return self._client._post("/api/v1/ai/anthropic/messages/opus", body)
 
 

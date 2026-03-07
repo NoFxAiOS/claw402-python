@@ -5,13 +5,21 @@ class OpenaiOpenai:
     def __init__(self, client):
         self._client = client
 
-    def chat(self, body: dict):
-        """Chat completions with GPT-4o (default) — $0.01/call"""
-        return self._client._post("/api/v1/ai/openai/chat", body)
+    def chat54(self, body: dict):
+        """Chat completions with GPT-5.4 (flagship, 1M context) — $0.05/call"""
+        return self._client._post("/api/v1/ai/openai/chat/5.4", body)
 
-    def chat_mini(self, body: dict):
-        """Chat completions with GPT-4o-mini (faster, cheaper) — $0.003/call"""
-        return self._client._post("/api/v1/ai/openai/chat/mini", body)
+    def chat54_pro(self, body: dict):
+        """Chat completions with GPT-5.4 Pro (highest precision) — $0.50/call"""
+        return self._client._post("/api/v1/ai/openai/chat/5.4-pro", body)
+
+    def chat53(self, body: dict):
+        """Chat completions with GPT-5.3 Instant (fast, great value) — $0.01/call"""
+        return self._client._post("/api/v1/ai/openai/chat/5.3", body)
+
+    def chat5_mini(self, body: dict):
+        """Chat completions with GPT-5-mini (fastest, cheapest) — $0.005/call"""
+        return self._client._post("/api/v1/ai/openai/chat/5-mini", body)
 
     def embeddings(self, body: dict):
         """Text embeddings with text-embedding-3-small — $0.002/call"""
@@ -22,7 +30,7 @@ class OpenaiOpenai:
         return self._client._post("/api/v1/ai/openai/embeddings/large", body)
 
     def images(self, body: dict):
-        """Image generation with DALL·E — $0.05/call"""
+        """Image generation with GPT Image — $0.05/call"""
         return self._client._post("/api/v1/ai/openai/images", body)
 
     def models(self):
