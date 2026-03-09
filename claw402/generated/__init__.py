@@ -5,6 +5,9 @@ from .anthropic import AnthropicResource
 from .coinank import CoinankResource
 from .coinmarketcap import CoinmarketcapResource
 from .deepseek import DeepseekResource
+from .gemini import GeminiResource
+from .grok import GrokResource
+from .kimi import KimiResource
 from .nofxos import NofxosResource
 from .openai import OpenaiResource
 from .polygon import PolygonResource
@@ -13,4 +16,4 @@ from .rootdata import RootdataResource
 from .tushare import TushareResource
 from .twelvedata import TwelvedataResource
 
-__all__ = ["AlpacaResource", "AlphavantageResource", "AnthropicResource", "CoinankResource", "CoinmarketcapResource", "DeepseekResource", "NofxosResource", "OpenaiResource", "PolygonResource", "QwenResource", "RootdataResource", "TushareResource", "TwelvedataResource"]
+__all__ = ["AlpacaResource", "AlphavantageResource", "AnthropicResource", "CoinankResource", "CoinmarketcapResource", "DeepseekResource", "GeminiResource", "GrokResource", "KimiResource", "NofxosResource", "OpenaiResource", "PolygonResource", "QwenResource", "RootdataResource", "TushareResource", "TwelvedataResource"]

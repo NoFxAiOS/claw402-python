@@ -6,79 +6,79 @@ class RootdataRootdata:
         self._client = client
 
     def search(self, body: dict):
-        """Search projects, organizations, and people by keyword — $0.002/call"""
+        """Search projects, VCs, and people by keyword. Body: {query: string, precise_x_search?: bool}. Default query: Bitcoin — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/search", body)
 
     def project(self, body: dict):
-        """Fetch detailed project info — funding rounds, team, tags. Required: project_id (int) OR contract_address (string) — $0.005/call"""
+        """Get project details. Body: {project_id: int} OR {contract_address: string}. Optional: include_team, include_investors (bool). Find IDs via /search or /id-map — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/project", body)
 
     def org(self, body: dict):
-        """Fetch organization / VC details. Required: org_id (int) — $0.005/call"""
+        """Get VC/org details. Body: {org_id: int}. Optional: include_team, include_investments (bool). Find IDs via /search or /id-map — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/org", body)
 
     def people(self, body: dict):
-        """Get individual person profile — career history, investments. Required: people_id (int) — $0.005/call"""
+        """Get person profile with X metrics. Body: {people_id: int}. Find IDs via /search or /id-map — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/people", body)
 
     def investors(self, body: dict):
-        """Batch retrieve investor information. Optional: page, page_size — $0.008/call"""
+        """Batch list investors. Body: {page?: int, page_size?: int (max 100)}. Defaults: page=1, page_size=10 — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/investors", body)
 
     def funding(self, body: dict):
-        """Batch fetch funding round information. Optional: page, page_size — $0.008/call"""
+        """Batch list funding rounds. Optional filters: start_time, end_time (unix sec), min_amount, max_amount (USD), project_id (int), page, page_size — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/funding", body)
 
     def changes(self, body: dict):
-        """Sync data updates within a time range. Required: start_time (unix timestamp, seconds). Optional: end_time — $0.005/call"""
+        """Sync recent data changes. Body: {begin_time: int (unix seconds)}. Optional: end_time. Note: param is begin_time (not start_time) — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/changes", body)
 
     def hot(self, body: dict):
-        """Top 100 trending crypto projects. Required: days (1=24h, 7=7d) — $0.010/call"""
+        """Top 100 trending projects. Body: {days: int}. Values: 1 = 24h ranking, 7 = 7-day ranking — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/hot", body)
 
     def hot_x(self, body: dict):
-        """Trending crypto projects on X (Twitter). Required: heat, influence, followers (bool filters) — $0.010/call"""
+        """Trending crypto projects on X. Body: {heat: bool, influence: bool, followers: bool}. Set at least one to true — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/hot-x", body)
 
     def kol(self, body: dict):
-        """Leading crypto figures on X (Twitter). Required: rank_type (heat|influence). Optional: page, page_size — $0.010/call"""
+        """Crypto KOL rankings on X. Body: {rank_type: 'heat' or 'influence'}. Optional: page, page_size — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/kol", body)
 
     def job_changes(self, body: dict):
-        """Crypto industry personnel movement. Required: recent_joinees (bool), recent_resignations (bool) — $0.010/call"""
+        """Crypto personnel movements. Body: {recent_joinees: bool, recent_resignations: bool}. Set at least one to true — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/job-changes", body)
 
     def new_tokens(self, body: dict):
-        """Recently launched token projects. Optional: page, page_size — $0.010/call"""
+        """Recently launched token projects. Optional: page, page_size — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/new-tokens", body)
 
     def id_map(self, body: dict):
-        """Retrieve ID list. Required: type (1=projects, 2=organizations, 3=people) — $0.020/call"""
+        """Get all entity IDs. Body: {type: int}. Values: 1=projects, 2=VCs, 3=people — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/id-map", body)
 
     def ecosystem_map(self, body: dict):
-        """Retrieve full ecosystem directory. No required parameters. — $0.020/call"""
+        """Get all ecosystem IDs and project counts. No parameters required — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/ecosystem-map", body)
 
     def tag_map(self, body: dict):
-        """Access full tag / category mapping. No required parameters. — $0.020/call"""
+        """Get all tag/category IDs. No parameters required — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/tag-map", body)
 
     def projects_by_ecosystem(self, body: dict):
-        """Query projects by ecosystem IDs. Required: ecosystem_ids (string, comma-separated). Optional: page, page_size — $0.015/call"""
+        """Projects by ecosystem. Body: {ecosystem_ids: string (comma-separated)}. Get IDs from /ecosystem-map first — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/projects-by-ecosystem", body)
 
     def projects_by_tag(self, body: dict):
-        """Query projects by tag IDs. Required: tag_ids (string, comma-separated). Optional: page, page_size — $0.015/call"""
+        """Projects by tag. Body: {tag_ids: string (comma-separated)}. Get IDs from /tag-map first — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/projects-by-tag", body)
 
     def twitter_map(self, body: dict):
-        """Bulk export X / Twitter data. Required: type (1=projects, 2=organizations, 3=people) — $0.030/call"""
+        """Bulk export X/Twitter data. Body: {type: int}. Values: 1=projects, 2=VCs, 3=people — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/twitter-map", body)
 
     def credits(self, body: dict):
-        """Check remaining API credits balance. No required parameters. — $0.001/call"""
+        """Check API credits balance. No parameters required — $0.001/call"""
         return self._client._post("/api/v1/crypto/rootdata/credits", body)
 
 

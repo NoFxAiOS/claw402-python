@@ -12,10 +12,14 @@ from .generated.alphavantage import AlphavantageResource
 from .generated.anthropic import AnthropicResource
 from .generated.coinank import CoinankResource
 from .generated.deepseek import DeepseekResource
+from .generated.gemini import GeminiResource
+from .generated.grok import GrokResource
+from .generated.kimi import KimiResource
 from .generated.nofxos import NofxosResource
 from .generated.openai import OpenaiResource
 from .generated.polygon import PolygonResource
 from .generated.qwen import QwenResource
+from .generated.rootdata import RootdataResource
 from .generated.tushare import TushareResource
 from .generated.twelvedata import TwelvedataResource
 
@@ -105,6 +109,11 @@ class Claw402:
         self.anthropic = AnthropicResource(self)
         self.deepseek = DeepseekResource(self)
         self.qwen = QwenResource(self)
+        self.gemini = GeminiResource(self)
+        self.grok = GrokResource(self)
+        self.kimi = KimiResource(self)
+        # Web3 intelligence
+        self.rootdata = RootdataResource(self)
 
     def close(self):
         """Close the underlying HTTP session."""
